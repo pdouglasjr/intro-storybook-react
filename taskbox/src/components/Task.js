@@ -2,6 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Task({ task:{ id, title, state }, onArchiveTask, onPinTask }) {
+  onPinTask = (e) => {
+    // disable page refresh
+    e.preventDefault();
+
+    console.log(document.getElementById());
+  }
+
   return (
     <div className="list-item">
       <label className="checkbox">
@@ -20,7 +27,7 @@ export default function Task({ task:{ id, title, state }, onArchiveTask, onPinTa
       <div className="actions" onClick={event => event.stopPropagation()}>
         {state !== 'TASK_ARCHIVED' && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
-          <a href="" onClick={() => onPinTask(id)}>
+          <a href="" onClick={ onPinTask } id={`Task-{id}`}>
             <span className={`icon-star`} />
           </a>
         )}
@@ -29,6 +36,7 @@ export default function Task({ task:{ id, title, state }, onArchiveTask, onPinTa
   );
 };
 
+// Specify data requirements
 Task.propTypes = {
   /** Composition of the task */
   task: PropTypes.shape({
@@ -41,7 +49,6 @@ Task.propTypes = {
   }),
   /** Event to change the task to archived */
   onArchiveTask: PropTypes.func,
-  /** Event to change teh task to pinned */
+  /** Event to change the task to pinned */
   onPinTask: PropTypes.func
-
 };

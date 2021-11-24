@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots TaskList Default 1`] = `
+<div
+  style={
+    Object {
+      "padding": "3rem",
+    }
+  }
+/>
+`;
+
 exports[`Storyshots Tasks Archived 1`] = `
 <div
   className="list-item"
